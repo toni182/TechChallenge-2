@@ -10,10 +10,9 @@ ls -la /fiap/targeting-service
 ls -la /fiap/evaluation-service
 ls -la /fiap/analytics-service
 
-cat /fiap/auth-service/.env
-cat /fiap/flag-service/requirements.txt
+dockecat /fiap/flag-service/requirements.txt
 
-2. Mostrar o arquivo cd /fiap e vim docker-compose-yml
+2. Mostrar o arquivo cd /fiap e vim docker-compose.yml
 
 3. Executar a subida do docker-compose up -d
 
@@ -47,16 +46,10 @@ cat /fiap/flag-service/requirements.txt
     -H "Authorization: Bearer admin-secreto-123" \
     -d '{"name": "analytics-service-key"}' 
 
-Chave gerada para auth-service: tm_key_ffeb9430925fa3c403ee6d21e8b0d737bc854a93c90bfabad15fc0eb41127144
-Chave gerada para flag-service: tm_key_801c4cfa8c75046ea1f34d1683331d458169e1189e122f9247e89b19889f19ea
-Chave gerada para targeting-service: tm_key_2e430c941bfe4872778019c36679563f6cd213c71500e0d30ddccc84ae4fcbf9
-Chave gerada para evaluation-service: tm_key_3d7b209f2c3682913766f94018efdf325170d9a211519cec03e4174bbba079f0
-Chave gerada para analytics-service: tm_key_cbc25b349b7504851c66af459400ad056aae9ff7733c043661f4c5ebe4a29fa9
-
 6. Realizar a criação de uma flag com:
   curl -X POST http://localhost:8002/flags \
     -H "Content-Type: application/json" \
-    -H "Authorization: Bearer tm_key_801c4cfa8c75046ea1f34d1683331d458169e1189e122f9247e89b19889f19ea" \
+    -H "Authorization: Bearer tm_key_8f5baeb09a9ad04e2443fece8d624cd1a46231d131023b58c0c401906a565dfe" \
     -d '{
         "name": "enable-new-dashboard",
         "description": "Ativa o novo dashboard para usuarios",
@@ -66,7 +59,7 @@ Chave gerada para analytics-service: tm_key_cbc25b349b7504851c66af459400ad056aae
 7. Realizar a criação de uma regra de targeting:
   curl -X POST http://localhost:8003/rules \
     -H "Content-Type: application/json" \
-    -H "Authorization: Bearer tm_key_2e430c941bfe4872778019c36679563f6cd213c71500e0d30ddccc84ae4fcbf9" \
+    -H "Authorization: Bearer tm_key_f5383cc66835189b3a9bbadff86fc8e1f771392a49e2a596989145ef7fe7685c" \
     -d '{
         "flag_name": "enable-new-dashboard",
         "is_enabled": true,
@@ -78,7 +71,7 @@ Chave gerada para analytics-service: tm_key_cbc25b349b7504851c66af459400ad056aae
 
 8. Buscar a regra criada
    curl http://localhost:8003/rules/enable-new-dashboard \
-    -H "Authorization: Bearer tm_key_2e430c941bfe4872778019c36679563f6cd213c71500e0d30ddccc84ae4fcbf9"
+    -H "Authorization: Bearer tm_key_a67b165e84f0e8226f58d1409e6d8c655a378c02e51c087696facb472ec42a5c"
 
 9. Realizar a atualização da chave do evaluation-service, dentro de vim /fiap/evaluation-service/.env
 
