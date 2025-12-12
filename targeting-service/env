@@ -1,0 +1,3 @@
+DATABASE_URL=postgres://postgres:senha123@target-db:5432/targeting_db
+PORT=8003
+AUTH_SERVICE_URL=http://auth-service:8001
