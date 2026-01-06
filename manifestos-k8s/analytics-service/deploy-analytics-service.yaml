@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analytics-service
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: analytics-service
+  template:
+    metadata:
+      labels:
+        app: analytics-service
+    spec:
+      imagePullSecrets:
+      - name: ecr-secret
+      containers:
+      - name: analytics-service
+        image: docker.io/analytics-service
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8005
+        envFrom:
+        - configMapRef:
+            name: analytics-service-env

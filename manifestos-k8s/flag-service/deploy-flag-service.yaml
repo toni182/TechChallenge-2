@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flag-service
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flag-service
+  template:
+    metadata:
+      labels:
+        app: flag-service
+    spec:
+      imagePullSecrets:
+      - name: ecr-secret
+      containers:
+      - name: flag-service
+        image: docker.io/flag-service
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8002
+        envFrom:
+        - configMapRef:
+            name: flag-service-env

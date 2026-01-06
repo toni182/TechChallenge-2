@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: evaluation-service
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: evaluation-service
+  template:
+    metadata:
+      labels:
+        app: evaluation-service
+    spec:
+      imagePullSecrets:
+      - name: ecr-secret
+      containers:
+      - name: evaluation-service
+        image: docker.io/evaluation-service
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8005
+        envFrom:
+        - configMapRef:
+            name: evaluation-service-env
