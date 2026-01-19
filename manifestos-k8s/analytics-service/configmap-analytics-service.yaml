@@ -2,14 +2,14 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: analytics-service-env
-  namespace: default
+  namespace: analytics-service
 data:
   # Porta que este serviço (health check) irá rodar
   PORT: "8005"
 
   # --- Configuração da AWS ---
   # Cole a URL da fila SQS que você criou
-  AWS_SQS_URL: https://sqs.us-east-1.amazonaws.com/730335328948/aws-evaluation-analytics
+  AWS_SQS_URL: https://sqs.us-east-1.amazonaws.com/590183807419/togglemaster-queue 
 
   # Nome da tabela DynamoDB que você criou
   AWS_DYNAMODB_TABLE: ToggleMasterAnalytics
@@ -18,7 +18,7 @@ data:
   AWS_REGION: us-east-1
 
   # Credenciais da AWS
-  AWS_ACCESS_KEY_ID: ASIA2UC3AXK2OHGBZBLI
-  AWS_SECRET_ACCESS_KEY: 5sjgc2fZmMpeT+epx51PMCkqULQxwbAB5/d/B2OZ
-  AWS_SESSION_TOKEN: IQoJb3JpZ2luX2VjEOT//////////wEaCXVzLXdlc3QtMiJHMEUCIDDQnAYzCo3fonzuyWe4KDz7NW/p4iKZ2FN+AyWm0g3KAiEAz/drwZq/EXlPIuRem7tAvJjGpaFgGsr13Adxxu6uARoqtAIIrf//////////ARAAGgw3MzAzMzUzMjg5NDgiDFma3gbWqd+vQcZ/8yqIAlcbRK1P6sKhtzBFJkkV7vfCir1+Dy6rRLPbItnmah76nY6s7Qk6zEUhjNSwFC+BxLIl6Qx0VQFH4HFCRpHFBZzxE3qmZs7vg3WiZbVfsmJg9jUeFiHXFrAkSs/m3Rk4ElHBLkWF7sXhAvxVdLCVuO0q3j+ngzEAAdDjoBSY38cE1oYfYopiUWYqtrF9QOFVfC+uSxImbtjkAifOQKDPCJL3BW75asKK8Z68Hiea+GMdACM72ZGP9+bcD1ZcCn1PpE1F4tPnrA0iLuIAWkgkbBwjMKb0ZeeOp9WDKTje6TBTiNNfrclPDdt+6IcZiQ26zMa4pD6771I02uNgThx9p8BIqTFx8VQodzCP1NzJBjqdAbLtVTo6zv3vSidFm5OhMPHZChivBix8TCIGNpqASuIkvcRs4GAYqUT1JD08PeeJUxzovEYd2QzjSH5ri89gmG7+uCgkVKSTmvezHcLiNI5pxF/cyHXkUhYOABLRMYbQVzWAe/o1TFeCwXZZxUyIHLY6a1oMAhdPGR+ZtdKWrXD+Z9Fcg160mVntKrRheWooryWUGdVGFAa1jv3C4PE=
+  AWS_ACCESS_KEY_ID: ASIAYS2NSHG56YTYMVTI 
+  AWS_SECRET_ACCESS_KEY: ODargRdW171WsUtQ990RHc/eBRGe2OaoA8H53IFB
+  AWS_SESSION_TOKEN: IQoJb3JpZ2luX2VjEKT//////////wEaCXVzLXdlc3QtMiJHMEUCIQCHi/SfagzUcHwopA0odaRghxNxb0mWHThuAOriPcQurwIgTa8qyTU4QTnjyVgyxcYP3yZhPEJwGADfAhOZjH0egO0qsgIIbRAAGgw1OTAxODM4MDc0MTkiDEpevw6mvIy1t9MPxCqPAuFgZpfrve22Y80v4QpLgz/CgWQXFBI7joXH3AtLEAVrQ4F7r5yznmtTCN1i13/BnLW4v0Dul3Q/pL6cBc9lZfTlcOqb9JBwIu5hbyW6Vbn10VsS0jCL7SsDrm5QIiAvsS+D8bF0J8hAgbnbmYsXAjl4s4+XtjG+dbu1rUVU1Skr3O7bfA9lmZXKdD7Kr80zWEzgCYS8mSj3CUVRDaIT+gMITOl0yEm2n7Yx6BYiLB2Ume37dUFZnp4iCj9mIhjfppuvX+yR5JiteMFHJrOkGSWzNz8hsgYDYOLXgjDwFNo0LO4SyHA0bIJGovIjieXNefWIydiEaAI0xGbpmBnxyeM1zeDZvwug95rIOI9U/MAwsMuvywY6nQHiLaL4pTJ42yUl511O4l6l3cjQZ/Te/+4vONIeAVfAUKcFhHNEAv7WuBNeItFkG/F3+615N8jYdEPcu9fqUXc4O4707H6oXFio50wlgbKuAoKPD/oyzxR7nGhZfCfEAwYzGtc67BuKnudefPyGPEwgjtRnUF2ro69j1qlavk5l2oCrRN+61yNXQXaBO7vfIV8RjDwLGY0aCqUUgM6h
     

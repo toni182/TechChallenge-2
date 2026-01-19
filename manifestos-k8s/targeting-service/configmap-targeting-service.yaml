@@ -2,8 +2,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: targeting-service-env
-  namespace: default
+  namespace: targeting-service
 data:
-  DATABASE_URL: postgres://postgres:senha123@target-db:5432/targeting_db
+  DATABASE_URL: postgres://postgres:togglemasterPass$123@togglemaster-rds-principal.clkeggq4owaz.us-east-1.rds.amazonaws.com:5432/targeting_db?sslmode=require
   PORT: "8003"
-  AUTH_SERVICE_URL: http://auth-service:8001
+  AUTH_SERVICE_URL: http://auth-service-svc.auth-service.svc.cluster.local:8001
