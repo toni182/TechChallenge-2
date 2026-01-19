@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auth-service-env
+  namespace: auth-service
+data:
+  # Conexão com o PostgreSQL no container
+  DATABASE_URL: postgres://postgres:togglemasterPass$123@togglemaster-rds-principal.clkeggq4owaz.us-east-1.rds.amazonaws.com:5432/auth_db?sslmode=require
+
+  # Porta do auth-service
+  PORT: "8001"
+
+  # Chave mestre para administração
+  MASTER_KEY: admin-secreto-123

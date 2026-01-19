@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: evaluation-service
+  namespace: evaluation-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: evaluation-service
+  template:
+    metadata:
+      labels:
+        app: evaluation-service
+    spec:
+      imagePullSecrets:
+      - name: oci-registry
+      containers:
+      - name: evaluation-service
+        image: 590183807419.dkr.ecr.us-east-1.amazonaws.com/evaluation-service 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8005
+        envFrom:
+        - configMapRef:
+            name: evaluation-service-env
+        resources:
+          requests:
+            cpu: 100m
+            memory: 50Mi
+          limits:
+            cpu: 200m
+            memory: 100Mi
+
+
+
+

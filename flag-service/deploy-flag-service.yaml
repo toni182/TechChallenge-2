@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flag-service
+  namespace: flag-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flag-service
+  template:
+    metadata:
+      labels:
+        app: flag-service
+    spec:
+      imagePullSecrets:
+      - name: ecr-secret
+      containers:
+      - name: flag-service
+        image: 590183807419.dkr.ecr.us-east-1.amazonaws.com/flag-service 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8002
+        envFrom:
+        - configMapRef:
+            name: flag-service-env
+        resources:
+          requests:
+            cpu: 100m
+            memory: 50Mi
+          limits:
+            cpu: 200m
+            memory: 100Mi
+
+
+
+
+
+
+
+
+

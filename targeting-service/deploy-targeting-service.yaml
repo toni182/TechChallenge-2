@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: targeting-service
+  namespace: targeting-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: targeting-service
+  template:
+    metadata:
+      labels:
+        app: targeting-service
+    spec:
+      imagePullSecrets:
+      - name: ecr-registry
+      containers:
+      - name: targeting-service
+        image: 590183807419.dkr.ecr.us-east-1.amazonaws.com/targeting-service 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8003
+        envFrom:
+        - configMapRef:
+            name: targeting-service-env
+        resources:
+          requests:
+            cpu: 100m
+            memory: 50Mi
+          limits:
+            cpu: 200m
+            memory: 100Mi
+
+
+
+
+
+
+
+
+
