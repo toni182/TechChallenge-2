@@ -1,4 +1,4 @@
-name: CI + Security + Docker Scan (No Push)
+name: CI + Security + Docker Scan (Sem Push) 
 
 on:
   push:
